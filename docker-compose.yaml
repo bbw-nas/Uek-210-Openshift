@@ -1,0 +1,4 @@
+service:
+  website:
+    build: .
+    container_name: 
