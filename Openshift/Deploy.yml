@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: appgithubaction/v1
+metadata:
+  name: html-openshift-appgithubaction
+  labels:
+    app: html-openshift-appgithubaction
+    app.kubernetes.io/part-of: html-openshift-appgithubaction
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: html-openshift-appgithubaction
+  template:
+    metadata:
+      labels:
+        app: html-openshift-appgithubaction
+    spec:
+      containers:
+      - name: html-openshift-appgithubaction
+        resources: {}
+        ports:
+        - containerPort: 8081
+          protocol: TCP
+        image: ghcr.io/bbw-nas/html-openshift-appgithubaction:v1
+        imagePullPolicy: Always
